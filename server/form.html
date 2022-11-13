@@ -1,0 +1,25 @@
+
+<html >
+<head>
+    
+    <title>Student Registration Form</title>
+</head>
+<body>
+        <h2>Student Registration form</h2>    
+        <form action="student.php" method="post">
+            Student Name: <input id="sname" name="sname" type="text" maxlength="15" placeholder="Student Name"/><br />
+            Father Name: <input id="fname" name="fname" type="text" maxlength="10" placeholder="Father Name" /><br />
+            Home Address: <input id="address" name="address" type="text" maxlength="20" placeholder="Home Address" /><br />
+            Sex: <input type="radio" id="male" name="sex"> Male <input type="radio" id="female" name="sex"> Femmale <br/>
+            Phone No: <input id="phone" name="phone" type="number" maxlength="20" placeholder="Enter your phone number">
+            <br/>    
+            <input type="submit" value="SUBMIT" />
+            <input type="reset"><br/>
+            <input type="text" placeholder="Search student name" name="search">
+            <button type="submit" value="Search">Search</button>
+            <br/>
+            <input id="update" name="update" type="button" value="Update by phone number">
+            <input id="records" name="records" type="button" value="Show all records">
+        </form>
+</body>
+</html>

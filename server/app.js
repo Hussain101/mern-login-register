@@ -1,27 +1,28 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
 
-const DB =
-  "mongodb+srv://Hussain:Hsrusher8$$@cluster0.uz7nfdv.mongodb.net/?retryWrites=true&w=majority";
+dotenv.config({ path: "./config.env" });
+require("./db/conn");
+// const User = require('./model/userSchema');
+
+app.use(express.json());
+
+// link to the route files
+app.use(require("./router/auth"));
+
+const port = process.env.PORT;
 
 // for the connection
-mongoose
-  .connect(DB)
-  .then(() => {
-    console.log("the connection is successful");
-  })
-  .catch(() => {
-    console.log("connection cant be successful ");
-  });
-
+//middlesware
 const middleware = (req, res, next) => {
   console.log("hello this is middleware");
   next();
 };
 
 app.get("/", (req, res) => {
-  res.send("Hello world from the server");
+  res.send("Hello world from the server from app js");
 });
 app.get("/contact", middleware, (req, res) => {
   res.send("Hello contact me here");
@@ -34,5 +35,5 @@ app.get("/signup", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("server is runnning at port number 3000");
+  console.log(`server is runnning at port number ${port}`);
 });
